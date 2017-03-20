@@ -20,8 +20,7 @@ public class Deck {
 	 * Cards are dealt from the top (highest index) down.
 	 * The next card to be dealt is at size - 1.
 	 */
-	private int size;
-	//cards.size();
+	private int size = cards.size();
 
 
 	/**
@@ -79,7 +78,12 @@ public class Deck {
 	 *         previously dealt.
 	 */
 	public Card deal() {
-		
+
+		Card c1 = cards.get(size - 1);
+		size--;
+		return c1;
+
+
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
 	}
 
