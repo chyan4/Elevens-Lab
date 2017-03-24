@@ -7,12 +7,12 @@ public class Shuffler {
 	 * The number of consecutive shuffle steps to be performed in each call
 	 * to each sorting procedure.
 	 */
-	private static final int SHUFFLE_COUNT = 1;
+	private static final int SHUFFLE_COUNT = 8;
 
 	/**
 	 * The number of values to shuffle.
 	 */
-	private static final int VALUE_COUNT = 4;
+	private static final int VALUE_COUNT = 52;
 
 	/**
 	 * Tests shuffling methods.
@@ -62,18 +62,21 @@ public class Shuffler {
 	public static void perfectShuffle(int[] values) 
 	{
 		int[] values2 = new int[values.length];
-		int k = 0;
-		int j = 0;
-		for (j = 0; j < 26; j++);
+		int m = 0;
+		for (int n = 0; n < (values.length+1)/2; n++)
 		{
-			values2[k] = values[j];
-			k = k + 2;
+			values2[m] = values[n];
+			m = m + 2;
 		}
-		k = 1;
-		for (j = 26; j < 52; j++);
+		m = 1;
+		for (int n = (values.length+1)/2; n < values.length; n++)
 		{
-			values2[k] = values[j];
-			k = k + 2;
+			values2[m] = values[n];
+			m = m + 2;
+		}
+		for (int h = 0; h < values.length; h++)
+		{
+			values[h] = values2[h];
 		}
 	}
 
@@ -89,6 +92,30 @@ public class Shuffler {
 	 * @param values is an array of integers simulating cards to be shuffled.
 	 */
 	public static void selectionShuffle(int[] values) {
+		int[] cards = values;
+		//int r = cards.length - 1;
+		//int[] shuffled = new int[values.length];
+		//for (int k = 0; k < 52; k++)
+		//{
+			//int j = (int)Math.random()*r + 1;
+			//if (cards[j] == -1)
+			//{
+				//while (cards[j] == -1)
+				//{
+					//j = (int)Math.random()*r + 1;
+				//}
+			//}
+			//shuffled[k] = cards[j];
+			//cards[j] = -1;
+			for (int k = values.length -1; k > 0; k--)
+			{
+				int r = (int)(Math.random()*k);
+				int a = cards[k];
+				cards[k] = cards[r];
+				cards[r] = a;
+			}
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
 	}
+
 }
+
