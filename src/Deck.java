@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * It provides several operations including
  *      initialize, shuffle, deal, and check if empty.
  */
-public class Deck {
+public class Deck  {
 
 	/**
 	 * cards contains all the cards in the deck.
@@ -42,6 +42,7 @@ public class Deck {
 	    	}
 	    }
 	    size = cards.size();
+	    shuffle(cards);
 	}
 
 
@@ -69,7 +70,16 @@ public class Deck {
 	 * Randomly permute the given collection of cards
 	 * and reset the size to represent the entire deck.
 	 */
-	public void shuffle() {
+	public void shuffle(Deck[] values) {
+		size = cards.size();
+		Deck[] cards = values;
+		for (int k = values.length -1; k > 0; k--)
+		{
+			int r = (int)(Math.random()*k);
+			Deck a = cards[k];
+			cards[k] = cards[r];
+			cards[r] = a;
+		}
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
 	}
 
