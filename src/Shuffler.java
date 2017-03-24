@@ -105,12 +105,11 @@ public class Shuffler {
 			//cards[j] = -1;
 			for (int k = values.length -1; k > 0; k--)
 			{
-				int r = (int)Math.random()*k;
+				int r = (int)(Math.random()*k);
 				int a = cards[k];
 				cards[k] = cards[r];
 				cards[r] = a;
-				
-		}
+			}
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
 	}
 }
