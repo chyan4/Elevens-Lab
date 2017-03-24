@@ -20,7 +20,7 @@ public class Deck {
 	 * Cards are dealt from the top (highest index) down.
 	 * The next card to be dealt is at size - 1.
 	 */
-	private int size = cards.size();
+	private int size;
 
 
 	/**
@@ -41,6 +41,7 @@ public class Deck {
 	    		cards.add(new Card(ranks[index], suits[index2], values[index]));
 	    	}
 	    }
+	    size = cards.size();
 	}
 
 
@@ -49,7 +50,7 @@ public class Deck {
 	 * @return true if this deck is empty, false otherwise.
 	 */
 	public boolean isEmpty() {
-		if (cards.size() == 0)
+		if (size <= 0)
 		return true;
 		else 
 			return false;
@@ -60,7 +61,7 @@ public class Deck {
 	 * @return the number of undealt cards in this deck.
 	 */
 	public int size() {
-		return cards.size();
+		return size;
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
 	}
 
@@ -77,7 +78,8 @@ public class Deck {
 	 * @return the card just dealt, or null if all the cards have been
 	 *         previously dealt.
 	 */
-	public Card deal() {
+	public Card deal() 
+	{
 
 		Card c1 = cards.get(size - 1);
 		size--;
